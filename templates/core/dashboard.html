@@ -3,10 +3,10 @@
 {% block title %}Dashboard | ULTRA Agency{% endblock %}
 
 {% block content %}
-<div class="d-flex flex-column flex-md-row justify-content-between gap-3 mb-4">
-    <div>
-        <h1 class="h3 mb-1">Dashboard</h1>
-        <p class="text-muted mb-0">Оперативная сводка по моделям, проектам и сотрудникам.</p>
+<div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+    <div class="page-head">
+        <h1 class="h3 mb-1">Обзор агентства</h1>
+        <p class="text-muted mb-0">Ключевые цифры по моделям, проектам и команде.</p>
     </div>
 </div>
 
@@ -16,7 +16,7 @@
             <div class="card-body">
                 <div class="text-muted small mb-1">Всего моделей</div>
                 <div class="display-6 fw-semibold">{{ total_models }}</div>
-                <a class="small text-decoration-none" href="{% url 'models_app:model_list' %}">Открыть базу</a>
+                <a class="small text-decoration-none" href="{% url 'models_app:model_list' %}">Перейти к базе →</a>
             </div>
         </div>
     </div>
@@ -43,7 +43,7 @@
             <div class="card-body">
                 <div class="text-muted small mb-1">Открытые проекты</div>
                 <div class="display-6 fw-semibold">{{ open_projects }}</div>
-                <a class="small text-decoration-none" href="{% url 'projects:project_list' %}">Открыть проекты</a>
+                <a class="small text-decoration-none" href="{% url 'projects:project_list' %}">Перейти к проектам →</a>
             </div>
         </div>
     </div>
@@ -64,7 +64,7 @@
                 <div class="text-muted small mb-1">Активные сотрудники</div>
                 <div class="display-6 fw-semibold">{{ employees_count }}</div>
                 {% if can_manage_employees %}
-                    <a class="small text-decoration-none" href="{% url 'employees:employee_list' %}">Открыть раздел</a>
+                    <a class="small text-decoration-none" href="{% url 'employees:employee_list' %}">Перейти в раздел →</a>
                 {% else %}
                     <span class="small text-muted">Кадровый учет</span>
                 {% endif %}
@@ -78,8 +78,7 @@
         <div class="card border-0 shadow-sm h-100">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h2 class="h5 mb-0">Последние модели</h2>
-                    <a class="btn btn-outline-dark btn-sm" href="{% url 'models_app:model_list' %}">Все модели</a>
+                    <h2 class="h5 mb-0">Новые анкеты</h2>
                 </div>
                 {% if latest_models %}
                     <div class="list-group list-group-flush">
@@ -94,8 +93,11 @@
                         {% endfor %}
                     </div>
                 {% else %}
-                    <p class="text-muted mb-0">Анкеты моделей пока не добавлены.</p>
+                    <p class="text-muted mb-0">Новых анкет пока нет.</p>
                 {% endif %}
+                <div class="mt-3 text-end">
+                    <a class="btn btn-outline-dark btn-sm" href="{% url 'models_app:model_list' %}">Смотреть все модели</a>
+                </div>
             </div>
         </div>
     </div>
@@ -104,8 +106,7 @@
         <div class="card border-0 shadow-sm h-100">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h2 class="h5 mb-0">Последние проекты</h2>
-                    <a class="btn btn-outline-dark btn-sm" href="{% url 'projects:project_list' %}">Все проекты</a>
+                    <h2 class="h5 mb-0">Свежие проекты</h2>
                 </div>
                 {% if latest_projects %}
                     <div class="list-group list-group-flush">
@@ -120,8 +121,11 @@
                         {% endfor %}
                     </div>
                 {% else %}
-                    <p class="text-muted mb-0">Проекты пока не добавлены.</p>
+                    <p class="text-muted mb-0">Свежих проектов пока нет.</p>
                 {% endif %}
+                <div class="mt-3 text-end">
+                    <a class="btn btn-outline-dark btn-sm" href="{% url 'projects:project_list' %}">Смотреть все проекты</a>
+                </div>
             </div>
         </div>
     </div>

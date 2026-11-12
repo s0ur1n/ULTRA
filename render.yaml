@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: ultra-agency
+    runtime: python
+    plan: free
+    buildCommand: bash build.sh
+    startCommand: gunicorn ULTRA.wsgi:application
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: SERVE_MEDIA
+        value: "True"

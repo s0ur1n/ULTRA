@@ -3,14 +3,14 @@
 {% block title %}Заказчики | ULTRA Agency{% endblock %}
 
 {% block content %}
-<div class="d-flex flex-column flex-md-row justify-content-between gap-3 mb-4">
-    <div>
+<div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+    <div class="page-head">
         <h1 class="h3 mb-1">Заказчики</h1>
-        <p class="text-muted mb-0">База клиентов агентства и история проектов.</p>
+        <p class="text-muted mb-0">Клиенты агентства и вся история работы с ними.</p>
     </div>
     {% if can_manage_clients %}
         <div>
-            <a class="btn btn-dark" href="{% url 'clients:client_create' %}">Добавить заказчика</a>
+            <a class="btn btn-dark" href="{% url 'clients:client_create' %}">+ Новый заказчик</a>
         </div>
     {% endif %}
 </div>
@@ -23,8 +23,8 @@
                 <input class="form-control" type="text" id="q" name="q" value="{{ request.GET.q }}" placeholder="Название, контактное лицо, телефон, email, город">
             </div>
             <div class="col-md-4 d-flex align-items-end gap-2">
-                <button class="btn btn-dark" type="submit">Найти</button>
                 <a class="btn btn-outline-secondary" href="{% url 'clients:client_list' %}">Сбросить</a>
+                <button class="btn btn-dark" type="submit">Найти</button>
             </div>
         </form>
     </div>
@@ -85,7 +85,7 @@
             <h2 class="h5">Заказчики не найдены</h2>
             <p class="text-muted mb-3">Измените поиск или добавьте первого заказчика.</p>
             {% if can_manage_clients %}
-                <a class="btn btn-dark" href="{% url 'clients:client_create' %}">Добавить заказчика</a>
+                <a class="btn btn-dark" href="{% url 'clients:client_create' %}">+ Новый заказчик</a>
             {% endif %}
         </div>
     </div>

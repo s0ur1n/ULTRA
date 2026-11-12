@@ -3,9 +3,9 @@
 {% block title %}Отчеты | ULTRA Agency{% endblock %}
 
 {% block content %}
-<div class="d-flex flex-column flex-md-row justify-content-between gap-3 mb-4">
-    <div>
-        <h1 class="h3 mb-1">Отчеты</h1>
+<div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+    <div class="page-head">
+        <h1 class="h3 mb-1">Аналитика и отчеты</h1>
         <p class="text-muted mb-0">Аналитика за период с {{ date_from|date:'d.m.Y' }} по {{ date_to|date:'d.m.Y' }}.</p>
     </div>
 </div>
@@ -23,8 +23,8 @@
                 </div>
             {% endfor %}
             <div class="col-md-6 d-flex align-items-end gap-2">
-                <button class="btn btn-dark" type="submit">Показать</button>
                 <a class="btn btn-outline-secondary" href="{% url 'reports:reports' %}">Текущий месяц</a>
+                <button class="btn btn-dark" type="submit">Показать отчет</button>
             </div>
         </form>
     </div>
